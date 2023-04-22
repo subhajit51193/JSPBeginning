@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<% page import="java.util.List, java.util.ArrayList, com.app.model.Product, com.app.model.Category"  %>	
+<%@ page import="java.util.List, java.util.ArrayList, com.app.model.Product, com.app.model.Category" %>	
 <HTML>
 	<HEAD><TITLE>Application with JSP My first Programme</TITLE></HEAD>
 	<BODY>
 		<%@include file="header.jsp" %>
 		<hr/>
-		<% List<Product> myList = request.getAttribute("productList"); %>
+		<% List<Product> myList = (List<Product>)request.getAttribute("productList"); %>
 		
 		<fieldset>
 			<legend><strong><big>Product List</big></strong></legend>

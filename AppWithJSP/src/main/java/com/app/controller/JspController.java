@@ -16,7 +16,7 @@ public class JspController {
 	@Autowired
 	private ProductService productService;
 	
-	@GetMapping("/index")
+	@GetMapping("/")
 	public String index() {
 		return "index";
 	}
