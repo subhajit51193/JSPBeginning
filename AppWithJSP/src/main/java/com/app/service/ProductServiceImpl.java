@@ -29,6 +29,13 @@ public class ProductServiceImpl implements ProductService{
 		categoryRepository.save(newCategory);
 		return productRepository.save(product);
 		
+//		Category newCategory =  new Category();
+//		newCategory.setCatName(product.getCategory().getCatName());
+//		newCategory.setProduct(product);
+//		categoryRepository.save(newCategory);
+//		product.setCategory(newCategory);
+//		return productRepository.save(product);
+		
 	}
 
 	@Override

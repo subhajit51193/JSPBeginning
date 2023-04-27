@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
@@ -35,29 +37,14 @@ public class JspController {
 		
 	}
 	
-	@PostMapping("/add_product")
-	public ModelAndView addProduct(Product product) {
+//	@PostMapping("/add_product")
+	@RequestMapping(value="/add_product",  method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView addProduct(@ModelAttribute("product")Product product) {
 		
 		Product newProduct = productService.addProduct(product);
-		ModelAndView mv = new ModelAndView("add_product", "newProduct", newProduct);
+		ModelAndView mv = new ModelAndView("add_product","addedProduct",newProduct);
 		return mv;
-		
-		
 	}
 	
-//	@GetMapping("/add_product")
-//	public String addProductView(Model model) {
-//		model.addAttribute("product",new Product());
-//		return "AddProduct";
-//	}
-//	
-//	@PostMapping("/add_product")
-//	public RedirectView addProduct(@ModelAttribute("product") Product product, RedirectAttributes redirectAttributes) {
-//		
-//		final RedirectView redirectView = new RedirectView("/add_product",true);
-//		Product savedProduct = productService.addProduct(product);
-//		redirectAttributes.addFlashAttribute("savedProduct",savedProduct);
-//		redirectAttributes.addFlashAttribute("addProductSucess",true);
-//		return redirectView;
-//	}
+
 }

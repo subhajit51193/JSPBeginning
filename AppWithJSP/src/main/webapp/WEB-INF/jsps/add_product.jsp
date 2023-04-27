@@ -1,24 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.List, java.util.ArrayList, com.app.model.Product, com.app.model.Category" %>		
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-    <head>
-        <title>Add Product</title>
-    </head>
-    <body>
-    <%@include file="header.jsp" %>
-    <% Product newProduct = request.getAttribute("newProduct"); %>
-    <legend><strong><big>Product List</big></strong></legend>
-        <c:if test="${addProductSuccess}">
-            <div>Successfully added Product with Id: ${savedProduct.getProductId}</div>
-        </c:if>
-    
-        <c:url var="add_product_url" value="/add_product"/>
-        <form:form action="${add_product_url}" method="post" modelAttribute="product">
-            <form:label path="productName">Product Name: </form:label> <form:input type="text" path="productName"/>
-            <form:label path="mrp">MRP: </form:label> <form:input path="mrp"/>
-            <form:label path="mfgDate">Date of Manufature: </form:label> <form:input path="mfgDate"/>
-            <input type="submit" value="submit"/>
-        </form:form>
-    </body>
+	<HEAD><TITLE>Add Product Page</TITLE></HEAD>
+	<body>
+		<%@include file="header.jsp" %>
+		<br>
+		<form action='/add_product' method='post'>
+		 <table class='table table-hover table-responsive table-bordered'>
+ 
+        <tr>
+            <td><b>Product Name</b></td> 
+            <td><input type='text' name='productName' class='form-control'  required/></td>
+        </tr>
+ 
+        <tr>
+            <td><b>MRP</b></td>
+            <td><input type='number' name='mrp' class='form-control' required /></td>
+        </tr>
+ 
+        <tr>
+            <td><b>Date of MFG</b></td>
+            <td><input type='text' name='mfgDate' class='form-control' size="20" required/></td>
+            
+        </tr>
+         <tr>
+            <td><b>Category Name</b></td>
+            <td><input type='text' name='catName' class='form-control' size="20" required/></td>
+            
+        </tr>
+ 
+ 
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </td>
+        </tr>
+ 
+    	</table>
+    	<b><c:out value="${danger}"></c:out></b>
+			
+		</form>
+	</body>
+
+
 </html>
