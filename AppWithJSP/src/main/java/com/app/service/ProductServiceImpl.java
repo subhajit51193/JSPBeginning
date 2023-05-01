@@ -56,4 +56,29 @@ public class ProductServiceImpl implements ProductService{
 		}
 	}
 
+	@Override
+	public boolean saveOrupdate(Product product) {
+		
+		Category newCategory = product.getCategory();
+		product.setCategory(newCategory);
+		newCategory.setProduct(product);
+		categoryRepository.save(newCategory);
+		Product updatedProduct = productRepository.save(product);
+		if (productRepository.findById(updatedProduct.getProductId()) != null) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean deleteProduct(Integer id) {
+		
+		productRepository.deleteById(id);
+		
+		if (productRepository.findById(id) != null) {
+			return true;
+		}
+		return false;
+	}
+
 }

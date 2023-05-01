@@ -11,4 +11,9 @@ public interface ProductService {
 	public List<Product> getAllProducts();
 	
 	public Product getProductById(Integer id);
+	
+	public boolean saveOrupdate(Product product);
+	
+	public boolean deleteProduct(Integer id);
+	
 }
