@@ -79,7 +79,7 @@ public class JspController {
 	    public String editAnime(@PathVariable Integer id, Model model) {
 	        model.addAttribute("product", productService.getProductById(id));
 
-	        return "EditProduct";
+	        return "editProduct";
 	    }
 	 
 	 
