@@ -28,6 +28,12 @@
 						<td align="right"><% out.println(pr.getMrp()); %></td>
 						<td align="right"><% out.println(pr.getMfgDate()); %></td>
 						<td align="left"><% out.println(pr.getCategory().getCatName()); %></td>
+						<td><button type="button" class="btn btn-success">
+                		    <a href="/editProduct/<% out.println(pr.getProductId()); %>">Edit</a>
+                		</button></td>
+                		<td><button type="button" class="btn btn-danger">
+                			<a href="/deleteProduct/<% out.println(pr.getProductId()); %>">Delete</a>
+                		</button></td>
 					</tr>
 					<%	
 				}%>

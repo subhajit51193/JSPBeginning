@@ -24,12 +24,12 @@ public class JspController {
 	@Autowired
 	private ProductService productService;
 	
-	@GetMapping("/")
-	public String index() {
-		return "index";
-	}
+//	@GetMapping("/")
+//	public String index() {
+//		return "index";
+//	}
 	
-	@GetMapping("/view_products")
+	@GetMapping({"/","/view_products"})
 	public ModelAndView getStudentList() {
 		
 		List<Product> list = productService.getAllProducts();
@@ -78,7 +78,6 @@ public class JspController {
 	 @GetMapping("/editProduct/{id}")
 	    public String editAnime(@PathVariable Integer id, Model model) {
 	        model.addAttribute("product", productService.getProductById(id));
-
 	        return "editProduct";
 	    }
 	 
