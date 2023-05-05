@@ -65,7 +65,7 @@ public class JspController {
 	}
 	
 	@PostMapping("/saveProduct")
-    public String saveAnime(Product product, RedirectAttributes redirectAttributes) {
+    public String saveProduct(Product product, RedirectAttributes redirectAttributes) {
         if (productService.saveOrupdate(product)) {
             redirectAttributes.addFlashAttribute("message", "Save Success");
             return "redirect:/view_products";
@@ -76,14 +76,14 @@ public class JspController {
     }
 	
 	 @GetMapping("/editProduct/{id}")
-	    public String editAnime(@PathVariable Integer id, Model model) {
+	    public String editProduct(@PathVariable Integer id, Model model) {
 	        model.addAttribute("product", productService.getProductById(id));
 	        return "editProduct";
 	    }
 	 
 	 
 	 @PostMapping("/editSaveProduct")
-	    public String editSaveAnime(Product product, RedirectAttributes redirectAttributes) {
+	    public String editSaveProduct(Product product, RedirectAttributes redirectAttributes) {
 	        if (productService.saveOrupdate(product)) {
 	            redirectAttributes.addFlashAttribute("message", "Edit Success");
 	            return "redirect:/view_products";
@@ -97,7 +97,7 @@ public class JspController {
 	 
 	 
 	 @GetMapping("/deleteProduct/{id}")
-	    public String deleteAnime(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
+	    public String deleteProduct(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
 	        if (productService.deleteProduct(id)) {
 	            redirectAttributes.addFlashAttribute("message", "Delete Success");
 	        } else {
