@@ -77,6 +77,7 @@ public class JspController {
 	
 	 @GetMapping("/editProduct/{id}")
 	    public String editProduct(@PathVariable Integer id, Model model) {
+		 	System.out.println("test");
 	        model.addAttribute("product", productService.getProductById(id));
 	        return "editProduct";
 	    }
@@ -85,6 +86,7 @@ public class JspController {
 	 @PostMapping("/editSaveProduct")
 	    public String editSaveProduct(Product product, RedirectAttributes redirectAttributes) {
 	        if (productService.saveOrupdate(product)) {
+	        	
 	            redirectAttributes.addFlashAttribute("message", "Edit Success");
 	            return "redirect:/view_products";
 	        }

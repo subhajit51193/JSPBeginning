@@ -68,6 +68,13 @@ public class ProductServiceImpl implements ProductService{
 			return true;
 		}
 		return false;
+		
+//		if (productRepository.findById(product.getProductId()) != null) {
+//			Product updatedProduct = productRepository.save(product);
+//			return true;
+//		}
+//		return false;
+		
 	}
 
 	@Override

@@ -30,4 +30,6 @@ public class Product {
 	
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "product",fetch = FetchType.LAZY)
 	private Category category;
+//	detached entity passed to persist
+	//error need to be checked
 }

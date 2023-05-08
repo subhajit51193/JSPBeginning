@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("com.app")
+//@ComponentScan("com.app")
 public class AppWithJspApplication {
 
 	public static void main(String[] args) {
